@@ -26,8 +26,8 @@ fruitObj.prototype.init = function(){
     this.spd[i] = Math.random() * 0.017 + 0.03;
     this.fruitType[i] = "";//未知
   }
-  this.orange.src = "./src/fruit.png";//黄颜色的食物图片
-  this.blue.src = "./src/blue.png";//蓝颜色的食物图片
+  this.orange.src = "img/fruit.png";//黄颜色的食物图片
+  this.blue.src = "img/blue.png";//蓝颜色的食物图片
 }
 //添加方法食物绘制
 fruitObj.prototype.draw = function(){

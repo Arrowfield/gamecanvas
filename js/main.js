@@ -48,7 +48,7 @@ function init() {
   canHeight = can1.height; //获取画布的高度600
   //初始化背景对象
   bgPic = new Image();
-  bgPic.src = "src/background.jpg";
+  bgPic.src = "img/background.jpg";
   //初始化海葵对象
   ane = new aneObj();
   //调用海葵初始化对象

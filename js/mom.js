@@ -18,17 +18,17 @@ class Mom{
     //加载图片眼睛2张
     for(var i=0;i<2;i++){
       this.bigEye[i] = new Image();
-      this.bigEye[i].src = "src/bigEye"+i+".png";
+      this.bigEye[i].src = "img/bigEye"+i+".png";
     }
     //加载图片身体8张
     for(var i=0;i<8;i++){
       this.bigBody[i] = new Image();
-      this.bigBody[i].src = "src/bigSwim"+i+".png";
+      this.bigBody[i].src = "img/bigSwim"+i+".png";
     }
     //加载图片尾巴8张
     for(var i=0;i<8;i++){
       this.bigTail[i] = new Image();
-      this.bigTail[i].src = "src/bigTail"+i+".png";
+      this.bigTail[i].src = "img/bigTail"+i+".png";
     }
   }
   draw(){
