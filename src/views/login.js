@@ -1,9 +1,11 @@
+//依赖
 import React, {Component} from 'react';
 
+//样式
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-
+//组件
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,11 +14,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
+//逻辑
+import {_login} from '../utils/api.js'
+import Alert from '../components/alert'
 
 // function MadeWithLove() {
 //   return (
@@ -24,7 +28,6 @@ import Container from '@material-ui/core/Container';
 //   )
 // }
 
-import {_login} from '../utils/api.js'
 
 const styles = (theme => ({
   '@global': {
@@ -70,7 +73,8 @@ class Login extends Component {
     super(props)
     this.state = {
       uname: "",
-      upwd: ""
+      upwd: "",
+      alert: {type: "success", open: false, message: ""}
     }
   }
 
@@ -78,16 +82,6 @@ class Login extends Component {
     var target = event.target
     const name = target.name
     this.setState({[name]: target.value})
-  }
-
-  async handleClick() {
-    const res = await _login({uname: this.state.uname, upwd: this.state.upwd}).catch((err)=>{console.log(err)})
-
-    if(res && res.code && res.code === 200){
-
-    }else{
-      console.log("登录失败")
-    }
   }
 
   render() {
@@ -154,11 +148,33 @@ class Login extends Component {
             </Grid>
           </form>
         </div>
-        <Box mt={5}>
-        </Box>
+        {/*增加提示框*/}
+        <Alert childEvent={this.childEvent} variant={this.state.alert.type}
+               message={this.state.alert.message}/>
+
       </Container>
     )
   }
+
+  async handleClick() {
+    const data = await _login({phone: this.state.uname, password: this.state.upwd}).catch((err) => {if(err) return})
+
+    if (data && data.data.code && data.data.code === 200) {
+      //this.setState({alert: {type: "success", message: "登录成功"}})
+    } else {
+      this.setState({alert: {type: "error", message: "登录失败,账号或密码错误"}})
+      this.$child.handleClick()
+    }
+
+  }
+  //获取子元素实例
+  childEvent = (childDate) => {
+    this.$child = childDate
+  }
+
+
+
+  //接受子对象（转发）
 }
 
 export default withStyles(styles)(Login)

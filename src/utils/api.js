@@ -34,15 +34,12 @@ _axios.interceptors.response.use(
 )
 
 export function _login(data) {
-  //return new Promise((resolve,reject)=>{
   return _axios.post('/auth/login', data)
-  //if(res.code && res.code === 200){resolve(res)}
-  //else{reject(res)}
-  //})
+
 }
 
 export function _register(data) {
-  return _axios.post('/doregister', data)
+  return _axios.post('/auth/register', data)
 }
 
 //如果不支持async和await,就使用Promise
