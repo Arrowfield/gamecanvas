@@ -1,10 +1,26 @@
 import React,{Component} from 'react'
 import './header.css'
 import {Menu,Icon} from 'antd'
+import withStyles from '@material-ui/core/styles/withStyles'
+import PropTypes from "prop-types";
+
+
 const  {SubMenu} = Menu
+
+const styles = {//不使用theme
+  headerNav:{
+    display:"inner-block"
+  }
+}
+
+
 
 
 class Header extends Component{
+
+  static propTypes = {
+    classes: PropTypes.object.isRequired
+  }
 
   state = {
     current: 'mail',
@@ -18,6 +34,9 @@ class Header extends Component{
   };
 
   render() {
+
+    const {classes} = this.props
+
     return(
       <Menu   onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
         <Menu.Item key="mail">
@@ -55,6 +74,6 @@ class Header extends Component{
   }
 }
 
-export default  Header
+export default  withStyles(styles)(Header)
 
 //路由

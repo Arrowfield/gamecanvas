@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+
 import PropTypes from 'prop-types';
-
-
 import withStyles from '@material-ui/core/styles/withStyles';
+
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,7 +15,6 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-// import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 
@@ -81,9 +81,13 @@ class Login extends Component {
   }
 
   async handleClick() {
-    //console.log(this.state.uname, this.state.upwd)
-    const res = await _login({uname:this.state.uname, upwd:this.state.upwd})
-    console.log(res)
+    const res = await _login({uname: this.state.uname, upwd: this.state.upwd}).catch((err)=>{console.log(err)})
+
+    if(res && res.code && res.code === 200){
+
+    }else{
+      console.log("登录失败")
+    }
   }
 
   render() {

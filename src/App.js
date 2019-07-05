@@ -6,7 +6,7 @@ import SystemRouter from './router/system'
 //import logo from './logo.svg';
 import {Layout} from 'antd'//按需加载
 import './App.css';
-import axios from 'axios'
+
 
 const {Header, Sider, Content} = Layout;
 
@@ -61,9 +61,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.post('https://web-api.juejin.im/v3/web/wbbr/bgeda')
-      .then((res)=>{console.log('axios 获取数据成功:'+JSON.stringify(res))  })
-      .catch((error)=>{console.log('axios 获取数据失败'+error)})
+    //axios.post('https://web-api.juejin.im/v3/web/wbbr/bgeda')
+      //.then((res)=>{console.log('axios 获取数据成功:'+JSON.stringify(res))  })
+      //.catch((error)=>{console.log('axios 获取数据失败'+error)})
   }
 }
 
