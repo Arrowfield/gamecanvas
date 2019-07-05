@@ -172,8 +172,6 @@ class Login extends Component {
     this.$child = childDate
   }
 
-
-
   //接受子对象（转发）
 }
 
