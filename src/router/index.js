@@ -21,7 +21,7 @@ const routerConfig: routerConfigModel[] = [
   {path: '/error', component: Error}
 ]
 
-//前端权限《定义高阶组件》
+//前端权限《定义代理式高阶组件》
 class FrontendAuth extends Component<any, routerConfig> {
   render() {
     const {location, config} = this.props
@@ -31,14 +31,14 @@ class FrontendAuth extends Component<any, routerConfig> {
     // console.log(location)
 
     //目标路由
-    const targetRouterConfig = config.find((v: any) => (v.path === pathname))
+    const targetRouterConfig = config.find((v: any) => (v.path === pathname))//返回找到的对象
 
     if(targetRouterConfig && !targetRouterConfig.auth && !isLogin){
       const { component } = targetRouterConfig
       return <Route exact path={pathname} component={component} />
     }
 
-    if (isLogin) {
+    if (isLogin) {//登录的状态
       if (pathname === '/login') {
         return <Redirect to='/'/>
       } else {
@@ -48,11 +48,11 @@ class FrontendAuth extends Component<any, routerConfig> {
             return <Redirect to="error"/>
         }
       }
-    }else{
+    }else{//未登录的状态
       if(targetRouterConfig && targetRouterConfig.auth){
         return <Redirect  to='/login' />
       }else{
-        return <Redirect to='/error' />
+        return <Redirect to='/login' />
       }
     }
   }

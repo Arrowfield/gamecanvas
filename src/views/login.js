@@ -150,7 +150,7 @@ class Login extends Component {
   }
 
   async handleClick() {
-    const data = await _login({phone: this.state.uname, password: this.state.upwd}).catch((err) => {if(err) return})
+    const data = await _login({phone: this.state.uname, password: this.state.upwd}).catch((err) => {if(err) return false})
 
     if (data && data.data.code && data.data.code === 200) {
       //this.setState({alert: {type: "success", message: "登录成功"}})
@@ -158,7 +158,6 @@ class Login extends Component {
       this.setState({alert: {type: "error", message: "登录失败,账号或密码错误"}})
       this.$child.handleClick()
     }
-
   }
   //获取子元素实例
   childEvent = (childDate) => {
