@@ -31,9 +31,9 @@ _axios.interceptors.response.use(
     // Do something with response error
 
     //此处渲染提示将Alert显示出来，然后将错误信息返回
-    //Vue已经实现（通过封装axios）
+    //Vue已经实现（通过封装Axios）
     //Angular也已经实现（通过封装Service）
-    //React还没有实现
+    //React还没有实现？？？？？？急！！！
 
     return Promise.reject(error)
   }
