@@ -7,12 +7,13 @@ import * as serviceWorker from './serviceWorker';
 
 // import './setupProxy'
 
-
 //配置react-router
 import {HashRouter as Router, Route,Switch,Redirect} from 'react-router-dom'
+
 //import Role from './views/system/role'
 import Error from './views/error'
 import Login from './views/login'
+import Home from './views/home'
 
 // require('./setupProxy')
 
@@ -23,8 +24,9 @@ const  MyRouter = ()=> (
     <Router>
       <Switch>
         {/*<Route exact path="/" component={App}/>*/}
-        <Route exact path="/login" component={Login}/>
         <Redirect exact from="/"  to='/login'/>{/*精确匹配*/}
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/home" component={Home}/>
         <Route component={Error}/>
       </Switch>
     </Router>

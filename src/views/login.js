@@ -54,14 +54,6 @@ const styles = (theme => ({
   },
 }))
 
-//函数式组件
-/*export default function SignIn() {
-  const classes = useStyles();
-  return (
-
-  )
-}*/
-
 //类组件
 class Login extends Component {
 
@@ -76,6 +68,7 @@ class Login extends Component {
       upwd: "",
       alert: {type: "success", open: false, message: ""}
     }
+    //console.log(this)
   }
 
   handleChange(event) {
