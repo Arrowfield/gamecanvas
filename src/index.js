@@ -1,43 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-//import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import IndexRouter from './router/'
+ReactDOM.render(<IndexRouter/>, document.getElementById('root'))
 
-import * as serviceWorker from './serviceWorker';
-
-// import './setupProxy'
-
-//配置react-router
-import {HashRouter as Router, Route,Switch,Redirect} from 'react-router-dom'
-
-//import Role from './views/system/role'
-import Error from './views/error'
-import Login from './views/login'
-import Home from './views/home'
-
-// require('./setupProxy')
-
-// proxy()
-
-
-const  MyRouter = ()=> (
-    <Router>
-      <Switch>
-        {/*<Route exact path="/" component={App}/>*/}
-        <Redirect exact from="/"  to='/login'/>{/*精确匹配*/}
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/home" component={Home}/>
-        <Route component={Error}/>
-      </Switch>
-    </Router>
-    )
-
-
-//配置redux
-
-ReactDOM.render(MyRouter(), document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import Nav from './components/nav.js'
-import HeaderNav from './components/header'
+// import HeaderNav from './components/header'
 import SystemRouter from './router/system'
 
 //import logo from './logo.svg';
@@ -39,7 +39,7 @@ class App extends Component {
               {/*onClick={this.toggle}*/}
               {/*/>*/}
 
-              <HeaderNav/>
+              {/*<HeaderNav/>*/}
             </Header>
 
             <Content
