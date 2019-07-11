@@ -1,93 +1,82 @@
-import React, {Component, Fragment} from 'react';
-import Nav from './components/nav.js'
-// import HeaderNav from './components/header'
-import SystemRouter from './router/system'
+import React,{Component} from 'react'
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import './App.css'
 
-//import logo from './logo.svg';
-import {Layout} from 'antd'//按需加载
-import './App.css';
-
-
-const {Header, Sider, Content} = Layout;
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 
 class App extends Component {
-
   state = {
     collapsed: false,
+    title:"控制台"
   };
 
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
+  onCollapse = collapsed => {
+    console.log(collapsed);
+    let title = this.state.title ? '' : '控制台'
+    this.setState({ collapsed,title});
   };
 
   render() {
     return (
-      <Fragment>
-        <Layout className='container'>
-          <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-            <div className="logo" style={{fontSize:14,color:'#1890ff'}}>后台管理系统</div>
-            <Nav/>
-          </Sider>
-          <Layout>
-            <Header className={'headerNav'}
-                    style={{background: '#fff', paddingLeft: 0, height: 50, lineHeight: 'normal'}}>
-              {/*<Icon*/}
-              {/*className="trigger"*/}
-              {/*type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}*/}
-              {/*onClick={this.toggle}*/}
-              {/*/>*/}
-
-              {/*<HeaderNav/>*/}
-            </Header>
-
-            <Content
-              style={{
-                margin: '24px 16px',
-                padding: 24,
-                background: '#fff',
-                minHeight: 280,
-              }}
+      <Layout style={{ minHeight: '100vh' }}>
+        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+          <div className="logo" >{this.state.title}</div>
+          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+            <Menu.Item key="1">
+              <Icon type="pie-chart" />
+              <span>Option 1</span>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Icon type="desktop" />
+              <span>Option 2</span>
+            </Menu.Item>
+            <SubMenu
+              key="sub1"
+              title={
+                <span>
+                  <Icon type="user" />
+                  <span>User</span>
+                </span>
+              }
             >
-              {/*<Role/>*/}
-              <SystemRouter/>
-            </Content>
-
-          </Layout>
+              <Menu.Item key="3">Tom</Menu.Item>
+              <Menu.Item key="4">Bill</Menu.Item>
+              <Menu.Item key="5">Alex</Menu.Item>
+            </SubMenu>
+            <SubMenu
+              key="sub2"
+              title={
+                <span>
+                  <Icon type="team" />
+                  <span>Team</span>
+                </span>
+              }
+            >
+              <Menu.Item key="6">Team 1</Menu.Item>
+              <Menu.Item key="8">Team 2</Menu.Item>
+            </SubMenu>
+            <Menu.Item key="9">
+              <Icon type="file" />
+              <span>File</span>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Layout>
+          <Header style={{ background: '#fff', padding: 0 }} />
+          <Content style={{ margin: '0 16px 0' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            </Breadcrumb>
+            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>Bill is a cat.</div>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
-      </Fragment>
-    )
-  }
-
-  componentDidMount() {
-    //axios.post('https://web-api.juejin.im/v3/web/wbbr/bgeda')
-      //.then((res)=>{console.log('axios 获取数据成功:'+JSON.stringify(res))  })
-      //.catch((error)=>{console.log('axios 获取数据失败'+error)})
+      </Layout>
+    );
   }
 }
-
-
-/*function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js 123</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}*/
 
 export default App;
 

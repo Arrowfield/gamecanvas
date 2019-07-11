@@ -20,8 +20,6 @@ import Container from '@material-ui/core/Container';
 
 //逻辑
 import {_login} from '../utils/api.js'
-import Alert from '../components/alert'
-
 // function MadeWithLove() {
 //   return (
 //     <Typography variant="body2" color="textSecondary" align="center">arrow field</Typography>
@@ -64,8 +62,8 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      uname: "",
-      upwd: "",
+      uname: "15118099616",
+      upwd: "123456",
       alert: {type: "success", open: false, message: ""}
     }
     //console.log(this)
@@ -142,27 +140,22 @@ class Login extends Component {
           </form>
         </div>
         {/*增加提示框*/}
-        <Alert childEvent={this.childEvent} variant={this.state.alert.type}
-               message={this.state.alert.message}/>
+        {/*<Alert childEvent={this.childEvent} variant={this.state.alert.type}*/}
+        {/*message={this.state.alert.message}/>*/}
 
       </Container>
     )
   }
 
   async handleClick() {
-    const data = await _login({phone: this.state.uname, password: this.state.upwd}).catch((err) => {if(err) return false})
-
-    if (data && data.data.code && data.data.code === 200) {
-      //this.setState({alert: {type: "success", message: "登录成功"}})
-    } else {
-      this.setState({alert: {type: "error", message: "登录失败,账号或密码错误"}})
-      this.$child.handleClick()
+    var {data} = await _login({phone: this.state.uname, password: this.state.upwd})
+    //使用history用来切换路由
+    if(data.code === 200){
+      sessionStorage.setItem('token',data.data.token)
+      window.location.reload()
     }
   }
-  //获取子元素实例
-  childEvent = (childDate) => {
-    this.$child = childDate
-  }
+
 
   //接受子对象（转发）
 }

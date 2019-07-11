@@ -1,25 +1,12 @@
 .container{position: absolute;top:0;bottom: 0;width: 100%;}
 .textColor{color:red;}
-/*.headerNav{display: flex;align-items: center;flex-wrap: nowrap;}*/
-
-#root .trigger {
-    font-size: 18px;
-    line-height: 50px;
-    padding: 0 24px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-#root .trigger:hover {
-    color: #1890ff;
-}
-
 #root .logo {
     height: 32px;
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;
-    line-height: 32px;
     font-size: 18px;
-    /*font-weight: bold;*/
-    padding-left:10px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
 }

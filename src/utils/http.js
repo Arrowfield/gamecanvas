@@ -1,10 +1,9 @@
 import axios from 'axios'
-
+import {message} from 'antd'
 axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';//配置请求头
-
 let config = {
-  baseURL: process.env.baseURL || process.env.apiUrl || "http://kqapi.kuaiqia.net/api",
-  timeout: 60 * 1000, // Timeout
+  baseURL: process.env.baseURL || process.env.apiUrl || "http://api.kqsns.qiliaoapp.cn/api",
+  timeout: 2 * 1000, // Timeout
   withCredentials: false, // Check cross-site Access-Control
   crossDomain: false//通常适用于jsonp
 }
@@ -18,6 +17,7 @@ _axios.interceptors.request.use(
   },
   function (error) {
     // Do something with request error
+
     return Promise.reject(error);
   }
 )
@@ -25,16 +25,19 @@ _axios.interceptors.request.use(
 _axios.interceptors.response.use(
   function (response) {
     // Do something with response data
+
+    // console.log(response.data.message)
+    message.success(response.data.message)
     return response
   },
   function (error) {
     // Do something with response error
-
     //此处渲染提示将Alert显示出来，然后将错误信息返回
     //Vue已经实现（通过封装Axios）
     //Angular也已经实现（通过封装Service）
-    //React还没有实现？？？？？？急！！！（相当于全局的）
-    console.log(error.response.data.message)
+    //React还没有实现？？？？？？急！！！（解决全局的）
+    // console.log(error.response.data.message)
+    message.error(error.response.data.message)
     return Promise.reject(error)
   }
 )
