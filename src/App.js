@@ -1,73 +1,23 @@
-import React,{Component} from 'react'
-import { Layout, Menu, Icon } from 'antd';
+import React, {Component} from 'react'
+import {Layout} from 'antd';
+import Aside from './components/aside'
+import Header from './components/header'
 import './App.css'
-import Home from './views/home/main'
-
-
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
-
-/*定义高阶组件进行对应的路由渲染*/
-interface routerConfigModel {
-  path:string,
-  component?:any,
-  auth?:boolean
-}
-
-const routerConfig:routerConfigModel[] = [
-  {path:"/home/main",component:Home}
-]
-
-class SwitchRouter extends Component<any,routerConfig>{
-
-}
+import MainContent from './components/content'
+const {Content} = Layout;
 
 class App extends Component {
-  state = {
-    collapsed: false,
-    title:"控制台"
-  };
 
-  onCollapse = collapsed => {
-    console.log(collapsed);
-    let title = this.state.title ? '' : '控制台'
-    this.setState({ collapsed,title});
-  };
 
   render() {
     return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-          <div className="logo" >{this.state.title}</div>
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1">
-              <Icon type="pie-chart" />
-              <span>控制台</span>
-            </Menu.Item>
-
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="user" />
-                  <span>常规管理</span>
-                </span>
-              }
-            >
-              <Menu.Item key="3">系统配置</Menu.Item>
-              <Menu.Item key="4">附件配置</Menu.Item>
-              <Menu.Item key="5">个人配置</Menu.Item>
-            </SubMenu>
-
-          </Menu>
-        </Sider>
+      <Layout style={{minHeight: '100vh'}}>
+        <Aside/>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
-
-          <Content style={{ margin: '0 16px 0' }}>
-            <Home/>
+          <Header/>
+          <Content style={{margin: '16px',padding:'10px',backgroundColor:"white"}}>
+              <MainContent/>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
       </Layout>
     );
