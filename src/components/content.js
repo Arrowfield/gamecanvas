@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 //import FrontendAuth from '../utils/router'
-//import {HashRouter as Router, Switch} from "react-router-dom";
+import {Switch,Route,Redirect} from "react-router-dom";
 
 
 //import Config from '../views/system/config'
@@ -16,10 +16,17 @@ import React, {Component} from 'react'
 //  {path: '/config', component: Config, auth: true},
 //]
 
+import HomeMain from '../views/home/main'
+import SystemRole from '../views/system/role'
+
 export default class Content extends  Component{
   render() {
     return (
-      <div>132</div>
+      <Switch>
+        <Route path="/home/main" component={HomeMain}/>
+        <Route path="/home/system/config" component={SystemRole}/>
+        <Redirect to="/home/main"/>
+      </Switch>
     )
   }
 }

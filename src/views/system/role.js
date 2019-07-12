@@ -79,7 +79,6 @@ export  default class TableDemo extends Component{
   render() {
     return(
       <div>
-
         <Table columns={columns} dataSource={data} />
       </div>
     )

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {HashRouter as Router,Switch} from "react-router-dom"
+import {HashRouter as Router, Switch, Link, Route} from "react-router-dom"
 import FrontendAuth from '../utils/router'
 
 import Error from '../views/error'
@@ -11,7 +11,7 @@ interface routerConfigModel {
   path: string,
   components?: any,
   auth?: boolean,
-  children?:any
+  children?: any
 }
 
 const routerConfig: routerConfigModel[] = [
@@ -29,8 +29,19 @@ export default class IndexRouter extends Component {
   render() {
     return (
       <Router>
+
+        {/*<Switch>*/}
+        {/*<FrontendAuth config={routerConfig} />*/}
+        {/*</Switch>*/}
+        <ul>
+          <li><Link to="/login">登录页面</Link></li>
+          <li><Link to="/home">首页页面</Link></li>
+          <li><Link to="/error">错误页面</Link></li>
+        </ul>
         <Switch>
-          <FrontendAuth config={routerConfig} />
+          <Route path="/login" component={Login}/>
+          <Route path="/home" component={Home}/>
+          <Route path="/error" component={Error}/>
         </Switch>
       </Router>
     )

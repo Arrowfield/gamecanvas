@@ -1,26 +1,35 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import {Layout} from 'antd';
+import {Redirect, Switch, Route} from 'react-router-dom'
 import Aside from './components/aside'
 import Header from './components/header'
+
 import './App.css'
+
 import MainContent from './components/content'
-const {Content} = Layout;
+import Config from './views/system/config'
+
+//const {Content} = Layout;
+
+import Login from './views/login'
+import Home from './views/home'
 
 class App extends Component {
-
-
   render() {
     return (
-      <Layout style={{minHeight: '100vh'}}>
-        <Aside/>
-        <Layout>
-          <Header/>
-          <Content style={{margin: '16px',padding:'10px',backgroundColor:"white"}}>
-              <MainContent/>
-          </Content>
-        </Layout>
-      </Layout>
-    );
+      <Fragment>
+        <Switch>
+          <Route path="/login" component={Login}/>
+          <Route path="/home" component={Home}/>
+          <Redirect to="/login"/>
+        </Switch>
+      </Fragment>
+    )
+  }
+
+  componentDidMount(): void {
+    //window.location.reload()
+
   }
 }
 

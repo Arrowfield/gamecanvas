@@ -8,14 +8,14 @@ export  default class FrontendAuth extends Component<any, routerConfig> {
     const {pathname} = location
     const isLogin = sessionStorage.getItem('token')
 
-    console.log(config)
+    //console.log(config)
 
     //目标路由
     const targetRouterConfig = config.find((v: any) => (v.path === pathname))//返回找到的对象
-    console.log(targetRouterConfig)
+    //console.log(targetRouterConfig)
     if (targetRouterConfig && !targetRouterConfig.auth && !isLogin) {
       const {component} = targetRouterConfig
-      return <Route  path={pathname} component={component}/>
+      return <Route   path={pathname} component={component}/>
     }
 
     if (isLogin) {//登录的状态

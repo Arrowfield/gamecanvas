@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import IndexRouter from './router/'
-ReactDOM.render(<IndexRouter/>, document.getElementById('root'))
+import {HashRouter as Router} from "react-router-dom";
+import App from './App'
+ReactDOM.render(<Router><App/></Router>, document.getElementById('root'))
 
