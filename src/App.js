@@ -1,10 +1,8 @@
 import React, {Component, Fragment} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route,Redirect} from 'react-router-dom'
 
 
 import './App.css'
-
-
 
 //const {Content} = Layout;
 
@@ -16,8 +14,9 @@ class App extends Component {
     return (
       <Fragment>
         <Switch>
-          <Route path="/" component={Home}/>
+          <Route path="/home" component={Home}/>
           <Route path="/login" component={Login}/>
+          <Redirect to="/home"/>
         </Switch>
       </Fragment>
     )

@@ -18,15 +18,17 @@ import {Switch, Route, Redirect} from "react-router-dom";
 
 import HomeMain from '../views/home/main'
 import SystemRole from '../views/system/role'
+import SystemConfig from '../views/system/config'
 
 export default class Content extends Component {
     render() {
         //this.props.history.push()
         return (
           <Switch>
-              <Route path="/home" component={HomeMain}/>
-              <Route path="/system/config" component={SystemRole}/>
-              <Redirect to="/home"/>
+              <Route path="/home/main" component={HomeMain}/>
+              <Route path="/home/system/role" component={SystemRole}/>
+              <Route path="/home/system/config" component={SystemConfig}/>
+              <Redirect to="/home/main"/>
           </Switch>
         )
     }

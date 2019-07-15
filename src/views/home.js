@@ -7,31 +7,28 @@ import Content from '../components/content'
 import {Redirect} from "react-router";
 
 export default class Home extends Component {
-    constructor(props){
-        super(props)
-        let isLogin = sessionStorage.getItem('token') && false
-        if(isLogin){
-            console.log("welcome to home page")
-        }else{
-            window.history.go(-1)
-        }
-    }
+
     render() {
         let token = sessionStorage.getItem("token")
 
-        if(!token) return <Redirect to="/login"/>
+        if (!token) return <Redirect to="/login"/>
 
         return (
           <Layout style={{minHeight: '100vh'}}>
               <Aside/>
               <Layout>
-                  <Header/>
+                  <Header handleExit={this.handleExit.bind(this)}/>
                   <div style={{margin: 10, padding: 10, backgroundColor: "#fff"}}>
                       <Content/>
                   </div>
               </Layout>
           </Layout>
         )
+    }
+
+    handleExit() {
+        sessionStorage.removeItem('token')
+        this.props.history.push('/login')
     }
 
     componentDidMount(): void {
