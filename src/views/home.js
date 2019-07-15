@@ -1,11 +1,10 @@
-import React, {Component, Fragment} from 'react'
-import {NavLink, Switch, Route, Redirect} from 'react-router-dom'
-import Config from './system/config'
-import Role from './system/role'
+import React, {Component} from 'react'
+
 import {Layout} from 'antd'
 import Aside from '../components/aside'
 import Header from '../components/header'
 import Content from '../components/content'
+import {Redirect} from "react-router";
 
 export default class Home extends Component {
     constructor(props){
@@ -18,6 +17,10 @@ export default class Home extends Component {
         }
     }
     render() {
+        let token = sessionStorage.getItem("token")
+
+        if(!token) return <Redirect to="/login"/>
+
         return (
           <Layout style={{minHeight: '100vh'}}>
               <Aside/>
