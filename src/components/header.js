@@ -62,8 +62,9 @@ class Header extends Component {
 
 
         return (
-          <div style={{backgroundColor:"white"}}>
-              <Menu onClick={this.handleClick} className={classes.floatLeft} selectedKeys={[this.state.current]} mode="horizontal">
+          <div style={{backgroundColor:"white",display:"flex",justifyContent:"space-between"}}>
+
+              <Menu style={{whiteSpace:"normal"}} onClick={this.handleClick} className={classes.floatLeft} selectedKeys={[this.state.current]} mode="horizontal">
                   <Menu.Item key="mail">
                       <Icon type="mail"/>
                       Navigation One
@@ -72,6 +73,7 @@ class Header extends Component {
                       <Icon type="appstore"/>
                       Navigation Two
                   </Menu.Item>
+
                   <SubMenu
                     title={
                         <span className="submenu-title-wrapper">
@@ -95,6 +97,7 @@ class Header extends Component {
                       </a>
                   </Menu.Item>
               </Menu>
+
               <Dropdown overlay={menu} trigger={['click']} className={`${classes.floatRight} ${classes.dropMenu}`}>
                   <a href="#" className="ant-dropdown-link">
                      Admin <Icon type="down" />
