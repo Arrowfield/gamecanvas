@@ -25,10 +25,10 @@ export default class Content extends Component {
         //this.props.history.push()
         return (
           <Switch>
-              <Route path="/home/main" component={HomeMain}/>
-              <Route path="/home/system/role" component={SystemRole}/>
-              <Route path="/home/system/config" component={SystemConfig}/>
-              <Redirect to="/home/main"/>
+              <Route path="/home" component={HomeMain}/>
+              <Route path="/system/role" component={SystemRole}/>
+              <Route path="/system/config" component={SystemConfig}/>
+              <Redirect to="/home"/>
           </Switch>
         )
     }

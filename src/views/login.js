@@ -20,6 +20,7 @@ import Container from '@material-ui/core/Container';
 
 //逻辑
 import {_login} from '../utils/api.js'
+import {Redirect} from "react-router";
 // function MadeWithLove() {
 //   return (
 //     <Typography variant="body2" color="textSecondary" align="center">arrow field</Typography>
@@ -77,6 +78,9 @@ class Login extends Component {
 
   render() {
     const {classes} = this.props
+
+    var token = sessionStorage.getItem('token')
+    if(token){return <Redirect to="/"/>}
 
     return (
       <Container component="main" maxWidth="xs">

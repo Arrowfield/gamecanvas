@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 // import './header.css'
-import {Menu, Icon,Dropdown} from 'antd'
+import {Menu, Icon, Dropdown} from 'antd'
 import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from "prop-types";
 
@@ -11,11 +11,11 @@ const styles = {//不使用theme
     headerNav: {
         display: "inner-block"
     },
-    floatLeft:{float:"left"},
-    floatRight:{float:"right"},
-    dropMenu:{
-        lineHeight:"48px",
-        padding:"0 20px"
+    floatLeft: {float: "left"},
+    floatRight: {float: "right"},
+    dropMenu: {
+        lineHeight: "48px",
+        padding: "0 20px"
     }
 }
 
@@ -60,11 +60,11 @@ class Header extends Component {
         )
 
 
-
         return (
-          <div style={{backgroundColor:"white",display:"flex",justifyContent:"space-between"}}>
+          <div style={{backgroundColor: "white", display: "flex", justifyContent: "space-between"}}>
 
-              <Menu style={{whiteSpace:"normal"}} onClick={this.handleClick} className={classes.floatLeft} selectedKeys={[this.state.current]} mode="horizontal">
+              <Menu style={{whiteSpace: "normal"}} onClick={this.handleClick} className={classes.floatLeft}
+                    selectedKeys={[this.state.current]} mode="horizontal">
                   <Menu.Item key="mail">
                       <Icon type="mail"/>
                       Navigation One
@@ -100,14 +100,12 @@ class Header extends Component {
 
               <Dropdown overlay={menu} trigger={['click']} className={`${classes.floatRight} ${classes.dropMenu}`}>
                   <a href="#" className="ant-dropdown-link">
-                     Admin <Icon type="down" />
+                      Admin <Icon type="down"/>
                   </a>
               </Dropdown>
           </div>
         )
     }
-
-
 }
 
 export default withStyles(styles)(Header)

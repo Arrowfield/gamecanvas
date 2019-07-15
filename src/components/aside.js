@@ -25,7 +25,7 @@ export default class Aside extends Component {
         <div className="logo">{this.state.title}</div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1">
-            <Link to="/home/main" replace>
+            <Link to="/home" replace>
               <Icon type="pie-chart"/>
               <span>控制台</span>
             </Link>
@@ -40,8 +40,8 @@ export default class Aside extends Component {
                 </span>
             }
           >
-            <Menu.Item key="4"><NavLink to="/home/system/config" replace>附件配置</NavLink></Menu.Item>
-            <Menu.Item key="5"><NavLink to="/home/system/role" replace>角色管理</NavLink></Menu.Item>
+            <Menu.Item key="4"><NavLink to="/system/config" replace>附件配置</NavLink></Menu.Item>
+            <Menu.Item key="5"><NavLink to="/system/role" replace>角色管理</NavLink></Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>

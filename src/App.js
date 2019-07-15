@@ -14,9 +14,8 @@ class App extends Component {
     return (
       <Fragment>
         <Switch>
-          <Route path="/home" component={Home}/>
           <Route path="/login" component={Login}/>
-          <Redirect to="/home"/>
+          <Route path="/" component={Home}/>
         </Switch>
       </Fragment>
     )
