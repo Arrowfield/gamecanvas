@@ -28,7 +28,7 @@ export default class Content extends Component {
               <Route path="/home" component={HomeMain}/>
               <Route path="/system/role" component={SystemRole}/>
               <Route path="/system/config" component={SystemConfig}/>
-              <Redirect to="/home"/>
+              <Redirect to={this.props.path}/>
           </Switch>
         )
     }

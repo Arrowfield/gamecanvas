@@ -157,7 +157,7 @@ class Login extends Component {
     if(data.code === 200){
       sessionStorage.setItem('token',data.data.token)
       //console.log(this.props.history)
-      this.props.history.push('/')//路由跳转，而不是刷新页面，是讲window对象的history属性的封装
+      this.props.history.push('/home')//路由跳转，而不是刷新页面，是讲window对象的history属性的封装
     }
   }
 

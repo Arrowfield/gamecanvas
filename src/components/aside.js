@@ -19,12 +19,18 @@ export default class Aside extends Component {
 
   render() {
     //console.log(this)
+
+
+    var path = this.props.path
+    //console.log(path.indexOf('/',1))
+    path = path.substring(0,path.indexOf('/',1))
+
     return (
 
       <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
         <div className="logo">{this.state.title}</div>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1">
+        <Menu theme="dark" defaultSelectedKeys={[this.props.path]} mode="inline" defaultOpenKeys={[path]}>
+          <Menu.Item key="/home">
             <Link to="/home" replace>
               <Icon type="pie-chart"/>
               <span>控制台</span>
@@ -32,7 +38,7 @@ export default class Aside extends Component {
           </Menu.Item>
 
           <SubMenu
-            key="sub1"
+            key="/system"
             title={
               <span>
                   <Icon type="user"/>
@@ -40,8 +46,8 @@ export default class Aside extends Component {
                 </span>
             }
           >
-            <Menu.Item key="4"><NavLink to="/system/config" replace>附件配置</NavLink></Menu.Item>
-            <Menu.Item key="5"><NavLink to="/system/role" replace>角色管理</NavLink></Menu.Item>
+            <Menu.Item key="/system/config"><NavLink to="/system/config" replace>附件配置</NavLink></Menu.Item>
+            <Menu.Item key="/system/role"><NavLink to="/system/role" replace>角色管理</NavLink></Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>

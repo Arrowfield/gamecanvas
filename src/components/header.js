@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 // import './header.css'
 import {Menu, Icon, Dropdown} from 'antd'
 import withStyles from '@material-ui/core/styles/withStyles'
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
 
 
 const {SubMenu} = Menu
@@ -45,8 +45,6 @@ class Header extends Component {
     render() {
 
         const {classes} = this.props
-
-
         const menu = (
           <Menu>
               <Menu.Item key="0">
@@ -55,7 +53,6 @@ class Header extends Component {
               <Menu.Item key="1">
                   <a href="#" onClick={this.props.handleExit}>退出</a>
               </Menu.Item>
-
           </Menu>
         )
 
