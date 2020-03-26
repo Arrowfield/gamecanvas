@@ -1,0 +1,105 @@
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-appearance: none;/*去掉浏览器默认样式*/
+    -webkit-touch-callout: none;/*禁止触发默认系统菜单*/  
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;/*让页面在Native端滚动时模拟原生的弹性滚动，硬件加速*/  
+}
+
+html {
+    font-size : 40px;
+    height: 100%;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+    padding: 0
+}
+
+ol,ul {
+    list-style: none
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+
+input,textarea,select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    *font-size: 100%;
+    outline: medium;
+}
+
+input, textarea, button, a,select {
+    border: 0;
+    margin: 0;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+textarea {
+    resize: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+audio,canvas,video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+p,em,b,i {
+    font-style: normal;
+    font-weight: normal
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    width: auto\9;/*ie8*/   
+}
+
+a, img {
+    -webkit-touch-callout: none;/* 禁止长按链接与图片弹出菜单*/  
+}
+
+html, body {
+    -webkit-user-select: none;/* 禁止选中文本（如无文本选中需求，此为必选项）*/
+    user-select: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}/* 数字输入框文本后面的图标去除（如无文本选中需求，此为必选项，用webkit私有的伪元素给fix掉）*/
+
+
+.container {
+    width: 16rem;
+    height: auto;
+    margin: 0 auto;
+}
