@@ -3,3 +3,11 @@
  * @params name[768449566@qq.com]
  * @params date[2020/03/25]
  */
+
+/**
+ * 编写测试函数
+ */
+(function(){
+    let a = 0
+    console.log(a)
+})()
