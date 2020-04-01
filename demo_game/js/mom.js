@@ -31,7 +31,7 @@ class Mom{
       this.bigTail[i].src = "img/bigTail"+i+".png";
     }
   }
-  draw(){
+  draw(ctx,mx,my){
     //让大鱼面向鼠标慢慢的游过去
     this.x = lerpDistance(mx,this.x,0.98);
     this.y = lerpDistance(my,this.y,0.99);
@@ -62,28 +62,28 @@ class Mom{
       }
     }
     //保存画笔的状态
-    ctx1.save();
+    ctx.save();
     //移动原点
-    ctx1.translate(this.x,this.y);
+    ctx.translate(this.x,this.y);
     //旋转角度
-    ctx1.rotate(this.angle);
+    ctx.rotate(this.angle);
     //会制鱼的身体；鱼的眼睛；尾巴；
-    ctx1.drawImage(
+    ctx.drawImage(
        this.bigEye[this.bigEyeIndex],
       -this.bigEye[this.bigEyeIndex].width*0.5,
       -this.bigEye[this.bigEyeIndex].height*0.5
     );
-    ctx1.drawImage(
+    ctx.drawImage(
        this.bigBody[0],
       -this.bigBody[0].width*0.5,
       -this.bigBody[0].height*0.5
     );
-    ctx1.drawImage(
+    ctx.drawImage(
        this.bigTail[0],
       -this.bigTail[0].width*0.5+30,
       -this.bigTail[0].height*0.5
     );
     //重置画笔状态
-    ctx1.restore();
+    ctx.restore();
   }
 }
